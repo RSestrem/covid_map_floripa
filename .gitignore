@@ -13,6 +13,9 @@
 /src/stand-by_files
 .env
 
+# files
+/src/data/.countries.json
+
 # misc
 .DS_Store
 .env.local

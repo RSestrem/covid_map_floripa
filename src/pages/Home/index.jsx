@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { CovidMap, Legend, Loading } from '../../components';
+import { CovidMap, Forms, Legend, Loading } from '../../components';
 import LoadBairrosTask from '../../tasks/LoadBairrosTask';
 import legendItems from '../../entities/LegendItems';
+import { Container, MapWrapper, Wrapper } from './styles';
 
 const Covid19 = () => {
     const [bairros, setBairros] = useState([]);
@@ -16,16 +17,21 @@ const Covid19 = () => {
     useEffect(load, []);
 
     return (
-        <>
-            {bairros.length === 0 ? (
-                <Loading />
-            ) : (
-                <>
-                    <CovidMap bairros={bairros} />
-                    <Legend legendItems={legendItemsInReverse} />
-                </>
-            )}
-        </>
+        <Wrapper>
+            <Container>
+                <Forms />{/* o forms vai ser estilizado e apresentado aqui */}
+            </Container>
+                {bairros.length === 0 ? (
+                    <MapWrapper>
+                        <Loading />
+                    </MapWrapper>
+                ) : (
+                    <MapWrapper>
+                        <CovidMap bairros={bairros} />
+                        <Legend legendItems={legendItemsInReverse} />
+                    </MapWrapper>
+                )}
+        </Wrapper>
     );
 }
  

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import LegendItem from '../../entities/LegendItem';
 
 export const LegendWrapper = styled.footer`
     display: flex;

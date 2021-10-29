@@ -1,6 +1,7 @@
 import React from 'react';
 import { LoadingSpinner } from './styles';
 
+/* enquanto o mapa não é carregado, apresenta um loading spinner */
 const Loading = () => {
     return (
         <LoadingSpinner>

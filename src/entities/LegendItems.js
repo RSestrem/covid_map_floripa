@@ -1,6 +1,5 @@
 import LegendItem from './LegendItem';
 
-//Teremos que refatorar a quantidade e o conteúdo da legenda de acordo com os números do município
 const legendItems = [
     new LegendItem(
         '10.000 +',
