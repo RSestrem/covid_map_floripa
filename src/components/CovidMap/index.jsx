@@ -22,6 +22,15 @@ const CovidMap = ({ bairros }) => {
         const confirmedText = bairro.properties.confirmedText;
         //A linha abaixo vai abrir um popup com o nome do bairro e o número de casos
         layer.bindPopup(`${name} ${confirmedText}`);
+
+        //mouseover - passando o mouse sobre os bairros vai exibir o número de casos
+        layer.on('mouseover', () => {
+            layer.openPopup();
+        });
+        //mouseout - retirando o cursor de cima do bairro faz sumir o popup
+        layer.on('mouseout', () => {
+            layer.closePopup();
+        });
     };
 
     return (

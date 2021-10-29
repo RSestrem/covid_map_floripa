@@ -6,12 +6,10 @@ import legendItems from '../entities/LegendItems';
 class LoadBairrosTask {
     covid19DataUrl =
         'https://raw.githubusercontent.com/RSestrem/covid_data/main/csv_tratado.csv';
-    //  'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv';
 
     setState = null;
     mapBairros = features;
 
-    /* A parte abaixo vai ter que ser refatorada para podermos retornar os casos de covid, já que no csv da prefeitura eles não estão somados */
     load = (setState) => {
         this.setState = setState;
 
