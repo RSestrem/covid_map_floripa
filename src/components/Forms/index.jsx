@@ -1,5 +1,6 @@
 import React from "react";
 import { BoxLegend, FileInput, FormBoxes, FormInputData, FormsHeader, FormsWrapper } from "./styles";
+import { FcHighPriority } from "react-icons/fc";
 
 const Forms = () => {
     return (
@@ -200,8 +201,18 @@ const Forms = () => {
                                 <option value="nao">Não</option>
                             </select>
                         </div>
-                        <div className="d-grid gap-2 d-md-flex pt-2 justify-content-md-end">
-                            <button className="btn btn-primary me-md-2" type="submit">Enviar Formulário</button>
+                        <div className="d-flex justify-content-evenly align-items-center">
+                            <div className="d-flex justify-content-evenly">
+                                <FcHighPriority />
+                                <i>
+                                    <strong>
+                                        Passe o mouse sobre os bairros no mapa para ver a quantidade de casos.
+                                    </strong>
+                                </i>
+                            </div>    
+                            <div className="d-grid gap-2 d-md-flex pt-2 justify-content-md-end">
+                                <button className="btn btn-primary me-md-2" type="submit">Enviar Formulário</button>
+                            </div>
                         </div>
                     </form>
                 </FormInputData>
