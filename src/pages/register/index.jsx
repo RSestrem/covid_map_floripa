@@ -40,7 +40,7 @@ const Register = () => {
     };
 
     const handleSeeDataClick = () => {
-        history.push('/') /* vai renderizar na página home */
+        history.push('/')
     };
 
     return (
@@ -242,8 +242,7 @@ const Register = () => {
                             </select>
                         </div>
                         <div className="d-flex justify-content-evenly align-items-center pt-5">
-                            <button className="btn btn-primary me-md-2" children="Covid19" onClick={handleSeeDataClick}>Retornar Para Página Inicial</button> {/* aqui vai retornar para Home usando children Covid19 */}
-
+                            <button className="btn btn-primary me-md-2" children="Covid19" onClick={handleSeeDataClick}>Retornar Para Página Inicial</button>
                             <button className="btn btn-primary" type="submit" children="Register" onClick={handleRegisterClick} >Registrar Dados do Formulário</button>
                         </div>
                     </FormContent>

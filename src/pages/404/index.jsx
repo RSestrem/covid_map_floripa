@@ -1,5 +1,5 @@
 import { React } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { Button } from '../../components';
 import { FcCancel } from "react-icons/fc";
 import { ButtonNotFound, ContainerNotFound, H2, NotFoundWrapper } from './styles';
