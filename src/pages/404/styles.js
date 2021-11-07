@@ -20,6 +20,8 @@ export const ContainerNotFound = styled.div`
     height: 50%;
     border: 0.2em solid #9f81f7;
     border-radius: 1.2em;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 `;
 
 export const H2 = styled.h2`
