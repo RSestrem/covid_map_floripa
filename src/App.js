@@ -1,10 +1,8 @@
 import React from 'react';
-import Covid19 from './pages/Home';
+import Routes from './routes';
 
 function App() {
-  return (
-    <Covid19 />
-  );
-};
+    return <Routes></Routes>;
+}
 
 export default App;

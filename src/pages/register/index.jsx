@@ -1,12 +1,52 @@
-import React from "react";
-import { BoxLegend, FileInput, FormBoxes, FormInputData, FormsHeader, FormsWrapper } from "./styles";
-import { FcHighPriority } from "react-icons/fc";
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { PostData } from '../../services/Data';/* aqui vai implementar no forms */
+import { Button } from '../../components/index'
+import { FormsWrapper, FormsHeader, FormBoxes, FileInput, BoxLegend, FormInputData, FormContent } from './styles';
 
-const Forms = () => {
+const Register = () => {
+    const [values, setValues] = useState({
+        dataNotificacao: '',
+        dataPrimSintomas: '',
+        dataTeste: '',
+        dataObito: '',
+        dataNascimento: '',
+        faixaEtaria: '',
+        sexo: '',
+        cor: '',
+        bairro: '',
+        cidade: '',
+        unidadeSaude: '',
+        tipoTeste: '',
+        dorGarganta: false,
+        dispneia: false,
+        febre: false,
+        tosse: false,
+        uti: false
+    });
+
+    const history = useHistory();
+
+    const handleValuesChange = e => setValues({
+        ...values, [e.target.name]: e.target.value
+    });
+
+    const handleRegisterClick = async () => {
+        const [hasErrors, response] = await PostData();
+
+        if (hasErrors) return;
+
+        setValues({ response });
+    };
+
+    const handleSeeDataClick = () => {
+        history.push('/') /* vai renderizar na página home */
+    };
+
     return (
         <FormsWrapper className="input-group">
 
-            <FormsHeader>Dados da COVID19 em Florianópolis</FormsHeader>
+            <FormsHeader>Dados do COVID19 em Florianópolis</FormsHeader>
 
             <FormBoxes>
             
@@ -19,12 +59,12 @@ const Forms = () => {
                             <input
                                 type="file"
                                 className="form-control"
-                                id="inputGroupFile04"
+                                id="csvInputFile"
                                 aria-describedby="inputGroupFileAddon04"
                                 aria-label="Upload"
-                                accept='.csv'
+                                accept=".csv"
                             />
-                             <button className="btn btn-outline-primary" type="button" id="csvInputFile">Enviar</button>
+                            <Button id="csvInputFIleButton">Clique Aqui Para Enviar o Arquivo</Button>
                         </div>
                     </fieldset>
                 </FileInput>
@@ -32,30 +72,30 @@ const Forms = () => {
                 <FormInputData>
                     <BoxLegend>Os campos marcados por * são obrigatórios</BoxLegend>
 
-                    <form className="row gy-2 gx-3 align-items-center">
+                    <FormContent className="row gy-2 gx-3 align-items-center">
                         <div className="col-auto">
-                            <label htmlFor="validationDefault01" className="form-label">Data de notificação*</label>
-                            <input type="date" className="form-control" id="validationDefault01" required />
-                        </div>
-                        <div className="col-auto">
-                            <label htmlFor="validationDefault02" className="form-label">Primeiros sintomas*</label>
-                            <input type="date" className="form-control" id="validationDefault02" required />
+                            <label htmlFor="dataNotificacao" className="form-label">Data de notificação*</label>
+                            <input type="date" className="form-control" name="dataNotificacao" id="dataNotificacao" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto">
-                            <label htmlFor="validationDefault03" className="form-label">Data do teste*</label>
-                            <input type="date" className="form-control" id="validationDefault03" required />
+                            <label htmlFor="dataPrimSintomas" className="form-label">Primeiros sintomas*</label>
+                            <input type="date" className="form-control" name="dataPrimSintomas" id="dataPrimSintomas" onChange={handleValuesChange} required />
+                        </div>
+                        <div className="col-auto">
+                            <label htmlFor="dataTeste" className="form-label">Data do teste*</label>
+                            <input type="date" className="form-control" name="dataTeste" id="dataTeste" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault04" className="form-label">Data do óbito (se houve)</label>
-                            <input type="date" className="form-control" id="validationDefault04" defaultValue="" />
+                            <label htmlFor="dataObito" className="form-label">Data do óbito (se houve)</label>
+                            <input type="date" className="form-control" name="dataObito" id="dataObito" defaultValue="" onChange={handleValuesChange} />
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault05" className="form-label">Data de nascimento*</label>
-                            <input type="date" className="form-control" id="validationDefault05" required />
+                            <label htmlFor="dataNascimento" className="form-label">Data de nascimento*</label>
+                            <input type="date" className="form-control" name="dataNascimento" id="dataNascimento" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault06" className="form-label">Faixa Etária*</label>
-                            <select className="form-select" id="validationDefault06" defaultValue="" required>
+                            <label htmlFor="faixaEtaria" className="form-label">Faixa Etária*</label>
+                            <select className="form-select" name="faixaEtaria" id="faixaEtaria" defaultValue="" onChange={handleValuesChange} required>{/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="0-9">0 a 9</option>
                                 <option value="10-19">10 a 19</option>
@@ -71,8 +111,8 @@ const Forms = () => {
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault07" className="form-label">Sexo*</label>
-                            <select className="form-select" id="validationDefault07" defaultValue="" required>
+                            <label htmlFor="sexo" className="form-label">Sexo*</label>
+                            <select className="form-select" name="sexo" id="sexo" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
@@ -80,8 +120,8 @@ const Forms = () => {
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault08" className="form-label">Raça*</label>
-                            <select className="form-select" id="validationDefault08" defaultValue="" required>
+                            <label htmlFor="cor" className="form-label">Raça*</label>
+                            <select className="form-select" name="cor" id="cor" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="amarela">Amarela</option>
                                 <option value="branca">Branca</option>
@@ -90,16 +130,16 @@ const Forms = () => {
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault09" className="form-label">Bairro*</label>
-                            <input type="text" className="form-control" id="validationDefault09" placeholder="Sem acentos maiúsculo" required />
+                            <label htmlFor="bairro" className="form-label">Bairro*</label>
+                            <input type="text" className="form-control" name="bairro" id="bairro" placeholder="Sem acentos maiúsculo" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault10" className="form-label">Cidade*</label>
-                            <input type="text" className="form-control" id="validationDefault10" placeholder="Sem acentos maiúsculo" required />
+                            <label htmlFor="cidade" className="form-label">Cidade*</label>
+                            <input type="text" className="form-control" name="cidade" id="cidade" placeholder="Sem acentos maiúsculo" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault11" className="form-label">Unidade de Saúde*</label>
-                            <select className="form-select" id="validationDefault11" defaultValue="" required>
+                            <label htmlFor="unidadeSaude" className="form-label">Unidade de Saúde*</label>
+                            <select className="form-select" name="unidadeSaude" id="unidadeSaude" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="abraao">Abraão</option>
                                 <option value="agronomica">Agronômica</option>
@@ -153,8 +193,8 @@ const Forms = () => {
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault12" className="form-label">Tipo de Teste*</label>
-                            <select className="form-select" id="validationDefault12" defaultValue="" required>
+                            <label htmlFor="tipoTeste" className="form-label">Tipo de Teste*</label>
+                            <select className="form-select" name="tipoTeste" id="tipoTeste" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="rt-pcr">RT-PCR</option>
                                 <option value="rapido">Teste Rápido</option>
@@ -162,63 +202,55 @@ const Forms = () => {
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault13" className="form-label">Dor de Garganta*</label>
-                            <select className="form-select" id="validationDefault13" defaultValue="" required>
+                            <label htmlFor="dorGarganta" className="form-label">Dor de Garganta*</label>
+                            <select className="form-select" name="dorGarganta" id="dorGarganta" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault14" className="form-label">Dispneia*</label>
-                            <select className="form-select" id="validationDefault14" defaultValue="" required>
+                            <label htmlFor="dispneia" className="form-label">Dispneia*</label>
+                            <select className="form-select" name="dispneia" id="dispneia" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault15" className="form-label">Febre*</label>
-                            <select className="form-select" id="validationDefault15" defaultValue="" required>
+                            <label htmlFor="febre" className="form-label">Febre*</label>
+                            <select className="form-select" name="febre" id="febre" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault16" className="form-label">Tosse*</label>
-                            <select className="form-select" id="validationDefault16" defaultValue="" required>
+                            <label htmlFor="tosse" className="form-label">Tosse*</label>
+                            <select className="form-select" name="tosse" id="tosse" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
                             </select>
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="validationDefault17" className="form-label">Internado na UTI?*</label>
-                            <select className="form-select" id="validationDefault17" defaultValue="" required>
+                            <label htmlFor="uti" className="form-label">Internado na UTI?*</label>
+                            <select className="form-select" name="uti" id="uti" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
                             </select>
                         </div>
-                        <div className="d-flex justify-content-evenly align-items-center">
-                            <div className="d-flex justify-content-evenly">
-                                <FcHighPriority />
-                                <i>
-                                    <strong>
-                                        Passe o mouse sobre os bairros no mapa para ver a quantidade de casos.
-                                    </strong>
-                                </i>
-                            </div>    
-                            <div className="d-grid gap-2 d-md-flex pt-2 justify-content-md-end">
-                                <button className="btn btn-primary me-md-2" type="submit">Enviar Formulário</button>
-                            </div>
+                        <div className="d-flex justify-content-evenly align-items-center pt-5">
+                            <button className="btn btn-primary me-md-2" children="Data" onClick={handleSeeDataClick}>Retornar Para Página Inicial</button> {/* aqui vai retornar para Home */}
+
+                            <button className="btn btn-primary" type="submit" children="Register" onClick={handleRegisterClick} >Registrar Dados do Formulário</button>
                         </div>
-                    </form>
+                    </FormContent>
                 </FormInputData>
             </FormBoxes>
-        </FormsWrapper>    
+        </FormsWrapper>
     );
 }
 
-export default Forms;
+export default Register;
