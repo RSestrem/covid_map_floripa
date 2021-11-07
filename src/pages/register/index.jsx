@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PostData } from '../../services/Data';
-import { Button } from '../../components/index'
+import { Button } from '../../components';
 import { FormsWrapper, FormsHeader, FormBoxes, FileInput, BoxLegend, FormInputData, FormContent } from './styles';
 
 const Register = () => {
@@ -46,7 +46,7 @@ const Register = () => {
     return (
         <FormsWrapper className="input-group">
 
-            <FormsHeader>Dados do COVID19 em Florianópolis</FormsHeader>
+            <FormsHeader>Registro de Casos da COVID19 em Florianópolis</FormsHeader>
 
             <FormBoxes>
             
@@ -135,7 +135,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="cidade" className="form-label">Cidade*</label>
-                            <input type="text" className="form-control" name="cidade" id="cidade" placeholder="Sem acentos maiúsculo" onChange={handleValuesChange} required />
+                            <input type="text" className="form-control" name="cidade" id="cidade" placeholder="FLORIANOPOLIS" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="unidadeSaude" className="form-label">Unidade de Saúde*</label>
@@ -242,7 +242,7 @@ const Register = () => {
                             </select>
                         </div>
                         <div className="d-flex justify-content-evenly align-items-center pt-5">
-                            <button className="btn btn-primary me-md-2" children="Data" onClick={handleSeeDataClick}>Retornar Para Página Inicial</button> {/* aqui vai retornar para Home */}
+                            <button className="btn btn-primary me-md-2" children="Covid19" onClick={handleSeeDataClick}>Retornar Para Página Inicial</button> {/* aqui vai retornar para Home usando children Covid19 */}
 
                             <button className="btn btn-primary" type="submit" children="Register" onClick={handleRegisterClick} >Registrar Dados do Formulário</button>
                         </div>

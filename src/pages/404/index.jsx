@@ -1,6 +1,6 @@
 import { React } from "react";
 import { useHistory } from "react-router";
-import { Button } from '../../components/index';
+import { Button } from '../../components';
 import { FcCancel } from "react-icons/fc";
 import { ButtonNotFound, ContainerNotFound, H2, NotFoundWrapper } from './styles';
 
@@ -21,7 +21,7 @@ const NotFound = () => {
                         Página não encontrada!
                     </H2>
                     <ButtonNotFound>
-                        <Button onClick={handleClicks} children='Data'>
+                        <Button onClick={handleClicks} children='Covid19'>
                             Retornar Para Página Inicial
                         </Button>
                     </ButtonNotFound>
