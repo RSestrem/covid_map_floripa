@@ -1,8 +1,8 @@
 import { React } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NotFound from '../pages/404/index';
-import Covid19 from '../pages/Home'; /* aqui vai ser a página Home */
-import Register from '../pages/register';
+import NotFound from '../pages/404';
+import Covid19 from '../pages/Home';
+import Register from '../pages/Register';
 
 const Routes = () => {
     return (
@@ -10,9 +10,7 @@ const Routes = () => {
             <BrowserRouter>
                 <Switch>
                     <Route exact path='/' component={Covid19} />
-                    {/* aqui vai quando clicar em registrar caso (botão do rodapé) */}
                     <Route exact path='/register' component={Register} />
-                    {/* nos demais casos digitados na url cai pra cá */}
                     <Route path='*' component={NotFound} />
                 </Switch>
             </BrowserRouter>

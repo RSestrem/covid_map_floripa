@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { PostData } from '../../services/Data';/* aqui vai implementar no forms */
+import { PostData } from '../../services/Data';
 import { Button } from '../../components/index'
 import { FormsWrapper, FormsHeader, FormBoxes, FileInput, BoxLegend, FormInputData, FormContent } from './styles';
 
@@ -27,16 +27,16 @@ const Register = () => {
 
     const history = useHistory();
 
-    const handleValuesChange = e => setValues({
-        ...values, [e.target.name]: e.target.value
-    });
+    const handleValuesChange = e => {
+        setValues({...values, [e.target.name]: e.target.value});
+    }
 
     const handleRegisterClick = async () => {
-        const [hasErrors, response] = await PostData();
+        const [hasErrors, response] = await PostData(values);
 
-        if (hasErrors) return;
+        if (hasErrors) return console.log('Erro');
 
-        setValues({ response });
+        console.log(response);
     };
 
     const handleSeeDataClick = () => {

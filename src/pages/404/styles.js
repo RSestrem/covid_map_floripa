@@ -12,6 +12,7 @@ export const ContainerNotFound = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #f0f8ff;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
