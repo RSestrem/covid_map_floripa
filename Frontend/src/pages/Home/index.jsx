@@ -18,6 +18,11 @@ const Covid19 = () => {
 
         if (hasErrors) return console.log('Erro');
 
+        for (let i = 0; i < response.datas.length; i++) {
+            response.datas[i].dataNotificacao = new Date(response.datas[i].dataNotificacao).toLocaleDateString();
+            response.datas[i].dataObito = new Date(response.datas[i].dataObito).toLocaleDateString();
+        }
+
         setDatas(response.datas);
     };
 
@@ -68,8 +73,8 @@ const Covid19 = () => {
                                     <p>{data.bairro}</p>
                                     <p>{data.sexo}</p>
                                     <p>{data.cor}</p>
-                                    <p>{(data.febre === true) ? 'sim' : 'não'}</p>
-                                    <p>{(data.tosse === true) ? 'sim' : 'não'}</p>
+                                    <p>{data.febre}</p>
+                                    <p>{data.tosse}</p>
                                 </ItemsContent>
                             </li>
                         )
