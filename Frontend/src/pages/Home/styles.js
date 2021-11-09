@@ -18,21 +18,21 @@ export const Container = styled.aside`
     background-color: #e6e6e6;
     font-family: 'Quicksand', sans-serif;
     font-size: 0.9em;
-    border-right: 2px solid #bdbdbd;
+    border-right: 0.1em solid #bdbdbd;
 
     ul {
-        margin-top: 10px;
         border: 0.08em #000 solid;
         list-style-type: none;
+        padding-left: 0;
     }
 
     ul li:nth-child(2n) {
-        background-color: rgb(70, 67, 67);
+        background-color: #bdbdbd;
+        list-style: none;
     }
 
     p + p {
         width: auto;
-        margin: 0px 0px 0px 20px;
     }
 
     button {
@@ -57,7 +57,7 @@ export const ItemsContent = styled.div`
     display: grid;
     grid-template-columns: 130px 130px 150px 75px 75px 75px 75px;
     text-align: center;
-    padding: 5px 0px;
+    padding: 0.4em;
 `;
 
 export const TableHeader = styled.header`

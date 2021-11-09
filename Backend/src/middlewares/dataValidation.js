@@ -29,12 +29,11 @@ module.exports = {
             .withMessage('Data de teste deve ser em formato data'),
 
         check('dataObito')
-            .notEmpty()
-            .withMessage('Data de obito cannot be empty')
-            .bail()
-            .toDate()
-            .isISO8601()
-            .withMessage('Data de obito deve ser em formato data'),
+            .custom(async (v) => {
+                if (await v !== null) {
+                    v.isISO8601();
+                }
+            }),
 
         check('dataNascimento')
             .notEmpty()
@@ -88,7 +87,8 @@ module.exports = {
             .notEmpty()
             .withMessage('Faixa etária cannot be empty')
             .bail()
-            .isIn(['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80-89', '90-99', '100+']),
+            .isIn(['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80-89', '90-99', '100+'])
+            .withMessage('Faixa etaria deve estar entre 0 e 100'),
         
         /* sexo */
         check('sexo')

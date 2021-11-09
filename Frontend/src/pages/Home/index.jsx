@@ -19,7 +19,7 @@ const Covid19 = () => {
         if (hasErrors) return console.log('Erro');
 
         for (let i = 0; i < response.datas.length; i++) {
-            response.datas[i].dataNotificacao = new Date(response.datas[i].dataNotificacao).toLocaleDateString();
+            response.datas[i].dataNotificacao = new Date(response.datas[i].dataNotificacao).toLocaleDateString();            
             response.datas[i].dataObito = new Date(response.datas[i].dataObito).toLocaleDateString();
         }
 

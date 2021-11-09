@@ -1,4 +1,4 @@
-const { Router, Router } = require('express');
+const { Router } = require('express');
 
 /* importação de rotas */
 const datasRouter = require('./datas.js');
