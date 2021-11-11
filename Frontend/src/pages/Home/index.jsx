@@ -19,8 +19,7 @@ const Covid19 = () => {
         if (hasErrors) return console.log('Erro');
 
         for (let i = 0; i < response.datas.length; i++) {
-            response.datas[i].dataNotificacao = new Date(response.datas[i].dataNotificacao).toLocaleDateString();            
-            response.datas[i].dataObito = new Date(response.datas[i].dataObito).toLocaleDateString();
+            response.datas[i].dataNotificacao = new Date(response.datas[i].dataNotificacao).toLocaleDateString();
         }
 
         setDatas(response.datas);
@@ -55,12 +54,12 @@ const Covid19 = () => {
                 <div>
                     <ItemsTitles>
                         <p>Notificação</p>
-                        <p>Óbito</p>
+                        <p>Faixa Etária</p>
                         <p>Bairro</p>
                         <p>Sexo</p>
-                        <p>Cor</p>
                         <p>Febre</p>
                         <p>Tosse</p>
+                        <p>Óbito</p>
                     </ItemsTitles>
                 </div>
                 <ul>
@@ -69,12 +68,12 @@ const Covid19 = () => {
                             <li key={data.id} >
                                 <ItemsContent>
                                     <p>{data.dataNotificacao}</p>
-                                    <p>{data.dataObito}</p>
+                                    <p>{data.faixaEtaria}</p>
                                     <p>{data.bairro}</p>
                                     <p>{data.sexo}</p>
-                                    <p>{data.cor}</p>
-                                    <p>{data.febre}</p>
-                                    <p>{data.tosse}</p>
+                                    <p>{(data.febre === 'sim') ? 'sim' : 'não' }</p>
+                                    <p>{(data.tosse === 'sim') ? 'sim' : 'não' }</p>
+                                    <p>{(data.dataObito === 'sim') ? 'sim' : 'não' }</p>
                                 </ItemsContent>
                             </li>
                         )

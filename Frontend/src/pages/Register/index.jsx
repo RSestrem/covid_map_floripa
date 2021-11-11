@@ -86,16 +86,12 @@ const Register = () => {
                             <input type="date" className="form-control" name="dataTeste" id="dataTeste" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto pt-2">
-                            <label htmlFor="dataObito" className="form-label">Data do óbito (se houve)</label>
-                            <input type="date" className="form-control" name="dataObito" id="dataObito" defaultValue="" onChange={handleValuesChange} />
-                        </div>
-                        <div className="col-auto pt-2">
                             <label htmlFor="dataNascimento" className="form-label">Data de nascimento*</label>
                             <input type="date" className="form-control" name="dataNascimento" id="dataNascimento" onChange={handleValuesChange} required />
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="faixaEtaria" className="form-label">Faixa Etária*</label>
-                            <select className="form-select" name="faixaEtaria" id="faixaEtaria" defaultValue="" onChange={handleValuesChange} required>{/* observar se vai funcionar */}
+                            <select className="form-select" name="faixaEtaria" id="faixaEtaria" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="0-9">0 a 9</option>
                                 <option value="10-19">10 a 19</option>
@@ -112,7 +108,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="sexo" className="form-label">Sexo*</label>
-                            <select className="form-select" name="sexo" id="sexo" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="sexo" id="sexo" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
@@ -121,7 +117,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="cor" className="form-label">Raça*</label>
-                            <select className="form-select" name="cor" id="cor" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="cor" id="cor" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="amarela">Amarela</option>
                                 <option value="branca">Branca</option>
@@ -139,7 +135,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="unidadeSaude" className="form-label">Unidade de Saúde*</label>
-                            <select className="form-select" name="unidadeSaude" id="unidadeSaude" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="unidadeSaude" id="unidadeSaude" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="abraao">Abraão</option>
                                 <option value="agronomica">Agronômica</option>
@@ -194,7 +190,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="tipoTeste" className="form-label">Tipo de Teste*</label>
-                            <select className="form-select" name="tipoTeste" id="tipoTeste" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="tipoTeste" id="tipoTeste" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="rt-pcr">RT-PCR</option>
                                 <option value="rapido">Teste Rápido</option>
@@ -203,7 +199,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="dorGarganta" className="form-label">Dor de Garganta*</label>
-                            <select className="form-select" name="dorGarganta" id="dorGarganta" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="dorGarganta" id="dorGarganta" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
@@ -211,7 +207,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="dispneia" className="form-label">Dispneia*</label>
-                            <select className="form-select" name="dispneia" id="dispneia" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="dispneia" id="dispneia" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
@@ -219,7 +215,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="febre" className="form-label">Febre*</label>
-                            <select className="form-select" name="febre" id="febre" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="febre" id="febre" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
@@ -227,7 +223,7 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="tosse" className="form-label">Tosse*</label>
-                            <select className="form-select" name="tosse" id="tosse" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="tosse" id="tosse" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
@@ -235,7 +231,15 @@ const Register = () => {
                         </div>
                         <div className="col-auto pt-2">
                             <label htmlFor="uti" className="form-label">Internado na UTI?*</label>
-                            <select className="form-select" name="uti" id="uti" defaultValue="" onChange={handleValuesChange} required> {/* observar se vai funcionar */}
+                            <select className="form-select" name="uti" id="uti" defaultValue="" onChange={handleValuesChange} required>
+                                <option disabled value="">Selecione</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div>
+                        <div className="col-auto pt-2">
+                            <label htmlFor="dataObito" className="form-label">Houve óbito?*</label>
+                            <select className="form-select" name="dataObito" id="dataObito" defaultValue="" onChange={handleValuesChange} required>
                                 <option disabled value="">Selecione</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>

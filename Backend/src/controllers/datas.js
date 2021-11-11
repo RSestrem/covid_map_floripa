@@ -6,7 +6,6 @@ module.exports = {
     createData: async (req, res) => {
         console.log('Create Data')
         const { dataNotificacao, dataPrimSintomas, dataTeste, dataObito, dataNascimento, faixaEtaria, sexo, cor, bairro, cidade, unidadeSaude, tipoTeste, dorGarganta, dispneia, febre, tosse, uti } = req.body;
-        console.log(tosse, dataObito, dispneia)
 
         /* Data Validation */
         const errors = validationResult(req);
@@ -20,7 +19,6 @@ module.exports = {
                     dataNotificacao,
                     dataPrimSintomas,
                     dataTeste,
-                    dataObito,
                     dataNascimento,
                     faixaEtaria,
                     sexo,
@@ -34,9 +32,9 @@ module.exports = {
                     febre,
                     tosse,
                     uti,
+                    dataObito,
                 },
             );
-
             return res.status(201).json({ covidData });
         } catch (erro) {
             return res.status(500).json({ UncaughtError: erro.message });

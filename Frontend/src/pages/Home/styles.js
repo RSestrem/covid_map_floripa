@@ -68,5 +68,5 @@ export const TableHeader = styled.header`
     color: #8181f7;
     padding: 0.8em;
     border-bottom: 0.15em solid #d8d8d8;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.1em;
 `;

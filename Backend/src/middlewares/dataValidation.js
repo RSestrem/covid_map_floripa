@@ -28,12 +28,13 @@ module.exports = {
             .isISO8601()
             .withMessage('Data de teste deve ser em formato data'),
 
+        /* verifica se houve óbito */
         check('dataObito')
-            .custom(async (v) => {
-                if (await v !== null) {
-                    v.isISO8601();
-                }
-            }),
+            .notEmpty()
+            .withMessage('Data de obito cannot be empty')
+            .bail()
+            .isIn(['sim', 'nao'])
+            .withMessage('Data de obito deve ser sim ou não'),
 
         check('dataNascimento')
             .notEmpty()
