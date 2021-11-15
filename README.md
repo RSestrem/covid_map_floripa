@@ -1,4 +1,4 @@
-### Aplicação Web: COVID19
+## Aplicação Web: COVID19
 
 ---
 >Esta aplicação é o projeto final do curso de Desenvolvedores de softwares (DEVs) - Nível 3, conforme edital 7/2021/PROEX - a, ofertado pela Universidade Federal de Santa Catarina (UFSC).
@@ -28,11 +28,11 @@ O objetivo aqui é armazenar dados disponibilizados pela Secretaria de Saúde de
 
 ---
 
-#### Banco de dados
+### Banco de dados
 Como solução de banco de dados, para este projeto foi utilizado o **[PostgreSQL](https://www.postgresql.org)**.
 </br>
 
-#### Dependências Requeridas
+### Dependências Requeridas
 As seguintes dependências são necessárias no frontend:
 - axios
 - bootstrap
@@ -45,7 +45,7 @@ As seguintes dependências são necessárias no frontend:
 - styled-components
 
 Para instalar as dependências, utilize o comando:
-#### `npm install <nome da dependência>`
+### `npm install <nome da dependência>`
 
 As seguintes dependências são necessárias no backend:
 - cors
@@ -59,11 +59,11 @@ As seguintes dependências são necessárias no backend:
 - uuid
 
 Para instalar as dependências, utilize o comando:
-#### `npm install <nome da dependência>`
+### `npm install <nome da dependência>`
 
 ---
 
-#### Ações Necessárias
+### Ações Necessárias
 Crie um arquivo `.env` na pasta Backend do projeto, em que é preciso configurar as informações do banco de dados conforme se verifica no arquivo dbConfig.js em src/config, a saber:
 `username password database host port`
 
@@ -73,14 +73,14 @@ A árvore de diretórios após a criação deve ficar assim:
 
 ---
 
-#### Scripts Disponíveis
+### Scripts Disponíveis
 
-#### `npm install`
+### `npm install`
 
 Vai instalar todas as dependências exigidas, conforme o arquivo `package.json` (este comando vale para os diretórios Backend e Frontend).
 
-#### `npm start`
+### `npm start`
 Inicia a aplicação React
 
-#### `nodemon server.js`
+### `nodemon server.js`
 Inicia o servidor (deve ser executado dentro de Backend)
