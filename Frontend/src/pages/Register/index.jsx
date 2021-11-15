@@ -1,10 +1,31 @@
+import api from '../../services/api';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PostData } from '../../services/Data';
 import { Button } from '../../components';
 import { FormsWrapper, FormsHeader, FormBoxes, FileInput, BoxLegend, FormInputData, FormContent } from './styles';
 
-const Register = () => {
+const Register = () => {    
+
+    /* csv file - multiple cases input */
+    const [file, setFile] = useState()
+
+    const handleSendFileClick = () => {
+        let data = new FormData();
+        data.append('file', file);
+
+        api.post('data/file', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    }
+
+    const handleChange = (event) => {
+        setFile(event.target.files[0])
+    }
+
+    /* form single case input */
     const [values, setValues] = useState({
         dataNotificacao: '',
         dataPrimSintomas: '',
@@ -18,11 +39,11 @@ const Register = () => {
         cidade: '',
         unidadeSaude: '',
         tipoTeste: '',
-        dorGarganta: false,
-        dispneia: false,
-        febre: false,
-        tosse: false,
-        uti: false
+        dorGarganta: '',
+        dispneia: '',
+        febre: '',
+        tosse: '',
+        uti: ''
     });
 
     const history = useHistory();
@@ -58,13 +79,15 @@ const Register = () => {
                         <div className="input-group">
                             <input
                                 type="file"
+                                name="file"
                                 className="form-control"
                                 id="csvInputFile"
                                 aria-describedby="inputGroupFileAddon04"
                                 aria-label="Upload"
                                 accept=".csv"
+                                onChange={handleChange}
                             />
-                            <Button id="csvInputFIleButton">Clique Aqui Para Enviar o Arquivo</Button>
+                            <Button id="csvInputFileButton" onClick={handleSendFileClick}>Clique Aqui Para Enviar o Arquivo</Button>
                         </div>
                     </fieldset>
                 </FileInput>

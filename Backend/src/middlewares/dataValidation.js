@@ -5,25 +5,16 @@ module.exports = {
     createDataValidator: [
         /* verifica se é data */
         check('dataNotificacao')
-            .notEmpty()
-            .withMessage('Data de notificacao cannot be empty')
-            .bail()
             .toDate()
             .isISO8601()
             .withMessage('Data de notificacao deve ser em formato data'),
 
         check('dataPrimSintomas')
-            .notEmpty()
-            .withMessage('Data de primeiros sintomas cannot be empty')
-            .bail()
             .toDate()
             .isISO8601()
             .withMessage('Data de primeiros sintomas deve ser em formato data'),
 
         check('dataTeste')
-            .notEmpty()
-            .withMessage('Data de teste cannot be empty')
-            .bail()
             .toDate()
             .isISO8601()
             .withMessage('Data de teste deve ser em formato data'),
@@ -37,9 +28,6 @@ module.exports = {
             .withMessage('Data de obito deve ser sim ou não'),
 
         check('dataNascimento')
-            .notEmpty()
-            .withMessage('Data de nascimento cannot be empty')
-            .bail()
             .toDate()
             .isISO8601()
             .withMessage('Data de nascimento deve ser em formato data'),

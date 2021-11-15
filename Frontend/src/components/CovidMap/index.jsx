@@ -34,7 +34,7 @@ const CovidMap = ({ bairros }) => {
     };
 
     return (
-        <MapContainer style={{ height: '90vh' }} zoomSnap={0.10} zoom={10.90} center={[-27.61, -48.50]}>
+        <MapContainer style={{ height: '90vh' }} scrollWheelZoom={false} zoomSnap={0.10} zoom={10.90} center={[-27.61, -48.50]}>
             <GeoJSON
                 style={mapStyle}
                 data={bairros}
